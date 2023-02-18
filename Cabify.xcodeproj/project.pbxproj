@@ -12,18 +12,11 @@
 		B3F49A3B29A04E480029FE56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A3A29A04E480029FE56 /* ViewController.swift */; };
 		B3F49A4029A04E4A0029FE56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3F49A3F29A04E4A0029FE56 /* Assets.xcassets */; };
 		B3F49A4329A04E4A0029FE56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3F49A4129A04E4A0029FE56 /* LaunchScreen.storyboard */; };
-		B3F49A4E29A04E4A0029FE56 /* CabifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A4D29A04E4A0029FE56 /* CabifyTests.swift */; };
+		B3F49A4E29A04E4A0029FE56 /* ItemsLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A4D29A04E4A0029FE56 /* ItemsLoaderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		B3F49A4A29A04E4A0029FE56 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B3F49A2B29A04E480029FE56 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B3F49A3229A04E480029FE56;
-			remoteInfo = Cabify;
-		};
-		B3F49A5429A04E4A0029FE56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B3F49A2B29A04E480029FE56 /* Project object */;
 			proxyType = 1;
@@ -41,8 +34,7 @@
 		B3F49A4229A04E4A0029FE56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3F49A4429A04E4A0029FE56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3F49A4929A04E4A0029FE56 /* CabifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CabifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3F49A4D29A04E4A0029FE56 /* CabifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabifyTests.swift; sourceTree = "<group>"; };
-		B3F49A5329A04E4A0029FE56 /* CabifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CabifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3F49A4D29A04E4A0029FE56 /* ItemsLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsLoaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,13 +46,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B3F49A4629A04E4A0029FE56 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B3F49A5029A04E4A0029FE56 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -84,7 +69,6 @@
 			children = (
 				B3F49A3329A04E480029FE56 /* Cabify.app */,
 				B3F49A4929A04E4A0029FE56 /* CabifyTests.xctest */,
-				B3F49A5329A04E4A0029FE56 /* CabifyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,7 +86,7 @@
 		B3F49A4C29A04E4A0029FE56 /* CabifyTests */ = {
 			isa = PBXGroup;
 			children = (
-				B3F49A4D29A04E4A0029FE56 /* CabifyTests.swift */,
+				B3F49A4D29A04E4A0029FE56 /* ItemsLoaderTests.swift */,
 			);
 			path = CabifyTests;
 			sourceTree = "<group>";
@@ -164,24 +148,6 @@
 			productReference = B3F49A4929A04E4A0029FE56 /* CabifyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B3F49A5229A04E4A0029FE56 /* CabifyUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B3F49A6329A04E4A0029FE56 /* Build configuration list for PBXNativeTarget "CabifyUITests" */;
-			buildPhases = (
-				B3F49A4F29A04E4A0029FE56 /* Sources */,
-				B3F49A5029A04E4A0029FE56 /* Frameworks */,
-				B3F49A5129A04E4A0029FE56 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B3F49A5529A04E4A0029FE56 /* PBXTargetDependency */,
-			);
-			name = CabifyUITests;
-			productName = CabifyUITests;
-			productReference = B3F49A5329A04E4A0029FE56 /* CabifyUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -196,10 +162,6 @@
 						CreatedOnToolsVersion = 14.2;
 					};
 					B3F49A4829A04E4A0029FE56 = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = B3F49A3229A04E480029FE56;
-					};
-					B3F49A5229A04E4A0029FE56 = {
 						CreatedOnToolsVersion = 14.2;
 						TestTargetID = B3F49A3229A04E480029FE56;
 					};
@@ -220,7 +182,6 @@
 			targets = (
 				B3F49A3229A04E480029FE56 /* Cabify */,
 				B3F49A4829A04E4A0029FE56 /* CabifyTests */,
-				B3F49A5229A04E4A0029FE56 /* CabifyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -236,13 +197,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B3F49A4729A04E4A0029FE56 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B3F49A5129A04E4A0029FE56 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -266,14 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3F49A4E29A04E4A0029FE56 /* CabifyTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B3F49A4F29A04E4A0029FE56 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				B3F49A4E29A04E4A0029FE56 /* ItemsLoaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,11 +231,6 @@
 			isa = PBXTargetDependency;
 			target = B3F49A3229A04E480029FE56 /* Cabify */;
 			targetProxy = B3F49A4A29A04E4A0029FE56 /* PBXContainerItemProxy */;
-		};
-		B3F49A5529A04E4A0029FE56 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B3F49A3229A04E480029FE56 /* Cabify */;
-			targetProxy = B3F49A5429A04E4A0029FE56 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -427,7 +369,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 82GZ32TP2H;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Cabify/Info.plist;
+				INFOPLIST_FILE = Cabify/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -455,7 +397,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 82GZ32TP2H;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Cabify/Info.plist;
+				INFOPLIST_FILE = Cabify/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -514,42 +456,6 @@
 			};
 			name = Release;
 		};
-		B3F49A6429A04E4A0029FE56 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 82GZ32TP2H;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.matiasglessi.CabifyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Cabify;
-			};
-			name = Debug;
-		};
-		B3F49A6529A04E4A0029FE56 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 82GZ32TP2H;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.matiasglessi.CabifyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Cabify;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -576,15 +482,6 @@
 			buildConfigurations = (
 				B3F49A6129A04E4A0029FE56 /* Debug */,
 				B3F49A6229A04E4A0029FE56 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B3F49A6329A04E4A0029FE56 /* Build configuration list for PBXNativeTarget "CabifyUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B3F49A6429A04E4A0029FE56 /* Debug */,
-				B3F49A6529A04E4A0029FE56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
