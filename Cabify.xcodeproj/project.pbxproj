@@ -12,7 +12,12 @@
 		B3F49A3B29A04E480029FE56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A3A29A04E480029FE56 /* ViewController.swift */; };
 		B3F49A4029A04E4A0029FE56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3F49A3F29A04E4A0029FE56 /* Assets.xcassets */; };
 		B3F49A4329A04E4A0029FE56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3F49A4129A04E4A0029FE56 /* LaunchScreen.storyboard */; };
-		B3F49A4E29A04E4A0029FE56 /* ItemsLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A4D29A04E4A0029FE56 /* ItemsLoaderTests.swift */; };
+		B3F49A4E29A04E4A0029FE56 /* DefaultItemsLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A4D29A04E4A0029FE56 /* DefaultItemsLoaderTests.swift */; };
+		B3F49A6A29A3D62C0029FE56 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A6929A3D62C0029FE56 /* Item.swift */; };
+		B3F49A6E29A3D6D90029FE56 /* ItemsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A6D29A3D6D90029FE56 /* ItemsLoader.swift */; };
+		B3F49A7229A3D7050029FE56 /* DefaultItemsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A7129A3D7050029FE56 /* DefaultItemsLoader.swift */; };
+		B3F49A7429A3D71F0029FE56 /* ItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A7329A3D71F0029FE56 /* ItemsMapper.swift */; };
+		B3F49A7729A3D7490029FE56 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A7629A3D7490029FE56 /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +39,12 @@
 		B3F49A4229A04E4A0029FE56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3F49A4429A04E4A0029FE56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3F49A4929A04E4A0029FE56 /* CabifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CabifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3F49A4D29A04E4A0029FE56 /* ItemsLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsLoaderTests.swift; sourceTree = "<group>"; };
+		B3F49A4D29A04E4A0029FE56 /* DefaultItemsLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultItemsLoaderTests.swift; sourceTree = "<group>"; };
+		B3F49A6929A3D62C0029FE56 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		B3F49A6D29A3D6D90029FE56 /* ItemsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsLoader.swift; sourceTree = "<group>"; };
+		B3F49A7129A3D7050029FE56 /* DefaultItemsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultItemsLoader.swift; sourceTree = "<group>"; };
+		B3F49A7329A3D71F0029FE56 /* ItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsMapper.swift; sourceTree = "<group>"; };
+		B3F49A7629A3D7490029FE56 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +86,8 @@
 		B3F49A3529A04E480029FE56 /* Cabify */ = {
 			isa = PBXGroup;
 			children = (
+				B3F49A6F29A3D6EE0029FE56 /* Infraestructure */,
+				B3F49A6B29A3D68F0029FE56 /* Core */,
 				B3F49A6729A117FC0029FE56 /* Application */,
 				B3F49A6629A117C30029FE56 /* Resources */,
 				B3F49A3A29A04E480029FE56 /* ViewController.swift */,
@@ -86,7 +98,7 @@
 		B3F49A4C29A04E4A0029FE56 /* CabifyTests */ = {
 			isa = PBXGroup;
 			children = (
-				B3F49A4D29A04E4A0029FE56 /* ItemsLoaderTests.swift */,
+				B3F49A4D29A04E4A0029FE56 /* DefaultItemsLoaderTests.swift */,
 			);
 			path = CabifyTests;
 			sourceTree = "<group>";
@@ -108,6 +120,57 @@
 				B3F49A3829A04E480029FE56 /* SceneDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		B3F49A6829A3D61D0029FE56 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B3F49A6929A3D62C0029FE56 /* Item.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B3F49A6B29A3D68F0029FE56 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B3F49A7529A3D7380029FE56 /* Networking */,
+				B3F49A6C29A3D69E0029FE56 /* Service */,
+				B3F49A6829A3D61D0029FE56 /* Domain */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B3F49A6C29A3D69E0029FE56 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B3F49A6D29A3D6D90029FE56 /* ItemsLoader.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B3F49A6F29A3D6EE0029FE56 /* Infraestructure */ = {
+			isa = PBXGroup;
+			children = (
+				B3F49A7029A3D6F80029FE56 /* Service */,
+			);
+			path = Infraestructure;
+			sourceTree = "<group>";
+		};
+		B3F49A7029A3D6F80029FE56 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B3F49A7129A3D7050029FE56 /* DefaultItemsLoader.swift */,
+				B3F49A7329A3D71F0029FE56 /* ItemsMapper.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B3F49A7529A3D7380029FE56 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B3F49A7629A3D7490029FE56 /* HTTPClient.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,8 +273,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3F49A6A29A3D62C0029FE56 /* Item.swift in Sources */,
 				B3F49A3B29A04E480029FE56 /* ViewController.swift in Sources */,
+				B3F49A7729A3D7490029FE56 /* HTTPClient.swift in Sources */,
 				B3F49A3729A04E480029FE56 /* AppDelegate.swift in Sources */,
+				B3F49A7229A3D7050029FE56 /* DefaultItemsLoader.swift in Sources */,
+				B3F49A7429A3D71F0029FE56 /* ItemsMapper.swift in Sources */,
+				B3F49A6E29A3D6D90029FE56 /* ItemsLoader.swift in Sources */,
 				B3F49A3929A04E480029FE56 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,7 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3F49A4E29A04E4A0029FE56 /* ItemsLoaderTests.swift in Sources */,
+				B3F49A4E29A04E4A0029FE56 /* DefaultItemsLoaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
