@@ -7,11 +7,6 @@
 
 import Foundation
 
-enum LoadDiscountsResult {
-    case success([Discount])
-    case failure(Error)
-}
-
 protocol DiscountsLoader {
-    func load(completion: @escaping (LoadDiscountsResult) -> Void)
+    func load() -> [Discount]
 }

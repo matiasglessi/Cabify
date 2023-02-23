@@ -12,19 +12,7 @@ final class DefaultDiscountsLoaderTests: XCTestCase {
     
     func test_load_getsDiscountsList() {
         let sut = DefaultDiscountsLoader()
-        
-        let expectation = expectation(description: "Wait for load completion")
-        
-        sut.load { result in
-            switch result {
-            case let .success(recievedDiscounts):
-                XCTAssertEqual(recievedDiscounts.count, 2)
-            default:
-                XCTFail("Expected success, got \(result) instead.")
-            }
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 1.0)
+        let recievedDiscounts = sut.load()
+        XCTAssertEqual(recievedDiscounts.count, 2)
     }
 }

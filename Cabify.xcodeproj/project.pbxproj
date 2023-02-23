@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B3F49A3729A04E480029FE56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A3629A04E480029FE56 /* AppDelegate.swift */; };
 		B3F49A3929A04E480029FE56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A3829A04E480029FE56 /* SceneDelegate.swift */; };
-		B3F49A3B29A04E480029FE56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A3A29A04E480029FE56 /* ViewController.swift */; };
+		B3F49A3B29A04E480029FE56 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A3A29A04E480029FE56 /* HomeViewController.swift */; };
 		B3F49A4029A04E4A0029FE56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3F49A3F29A04E4A0029FE56 /* Assets.xcassets */; };
 		B3F49A4329A04E4A0029FE56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3F49A4129A04E4A0029FE56 /* LaunchScreen.storyboard */; };
 		B3F49A4E29A04E4A0029FE56 /* DefaultItemsLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A4D29A04E4A0029FE56 /* DefaultItemsLoaderTests.swift */; };
@@ -25,6 +25,8 @@
 		B3F49A8829A79BDD0029FE56 /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A8729A79BDD0029FE56 /* Discount.swift */; };
 		B3F49A8A29A79C2C0029FE56 /* DiscountsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A8929A79C2C0029FE56 /* DiscountsLoader.swift */; };
 		B3F49A8C29A79C830029FE56 /* DefaultDiscountsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A8B29A79C830029FE56 /* DefaultDiscountsLoader.swift */; };
+		B3F49A8F29A7A10E0029FE56 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A8E29A7A10E0029FE56 /* HomeViewModelTests.swift */; };
+		B3F49A9229A7B2AE0029FE56 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A9129A7B2AE0029FE56 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +43,7 @@
 		B3F49A3329A04E480029FE56 /* Cabify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cabify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3F49A3629A04E480029FE56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3F49A3829A04E480029FE56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B3F49A3A29A04E480029FE56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B3F49A3A29A04E480029FE56 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B3F49A3F29A04E4A0029FE56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3F49A4229A04E4A0029FE56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3F49A4429A04E4A0029FE56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +61,8 @@
 		B3F49A8729A79BDD0029FE56 /* Discount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
 		B3F49A8929A79C2C0029FE56 /* DiscountsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsLoader.swift; sourceTree = "<group>"; };
 		B3F49A8B29A79C830029FE56 /* DefaultDiscountsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDiscountsLoader.swift; sourceTree = "<group>"; };
+		B3F49A8E29A7A10E0029FE56 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		B3F49A9129A7B2AE0029FE56 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,11 +104,11 @@
 		B3F49A3529A04E480029FE56 /* Cabify */ = {
 			isa = PBXGroup;
 			children = (
+				B3F49A9029A7B2A00029FE56 /* Presentation */,
 				B3F49A6F29A3D6EE0029FE56 /* Infrastructure */,
 				B3F49A6B29A3D68F0029FE56 /* Core */,
 				B3F49A6729A117FC0029FE56 /* Application */,
 				B3F49A6629A117C30029FE56 /* Resources */,
-				B3F49A3A29A04E480029FE56 /* ViewController.swift */,
 			);
 			path = Cabify;
 			sourceTree = "<group>";
@@ -112,6 +116,7 @@
 		B3F49A4C29A04E4A0029FE56 /* CabifyTests */ = {
 			isa = PBXGroup;
 			children = (
+				B3F49A8D29A7A1000029FE56 /* Presentation */,
 				B3F49A7829A3FBBD0029FE56 /* Infrastructure */,
 			);
 			path = CabifyTests;
@@ -218,6 +223,23 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		B3F49A8D29A7A1000029FE56 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				B3F49A8E29A7A10E0029FE56 /* HomeViewModelTests.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		B3F49A9029A7B2A00029FE56 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				B3F49A3A29A04E480029FE56 /* HomeViewController.swift */,
+				B3F49A9129A7B2AE0029FE56 /* HomeViewModel.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -322,11 +344,12 @@
 				B3F49A8829A79BDD0029FE56 /* Discount.swift in Sources */,
 				B3F49A8129A40BDB0029FE56 /* URLSessionHTTPClient.swift in Sources */,
 				B3F49A8A29A79C2C0029FE56 /* DiscountsLoader.swift in Sources */,
-				B3F49A3B29A04E480029FE56 /* ViewController.swift in Sources */,
+				B3F49A3B29A04E480029FE56 /* HomeViewController.swift in Sources */,
 				B3F49A7729A3D7490029FE56 /* HTTPClient.swift in Sources */,
 				B3F49A3729A04E480029FE56 /* AppDelegate.swift in Sources */,
 				B3F49A7229A3D7050029FE56 /* DefaultItemsLoader.swift in Sources */,
 				B3F49A7429A3D71F0029FE56 /* ItemsMapper.swift in Sources */,
+				B3F49A9229A7B2AE0029FE56 /* HomeViewModel.swift in Sources */,
 				B3F49A6E29A3D6D90029FE56 /* ItemsLoader.swift in Sources */,
 				B3F49A8C29A79C830029FE56 /* DefaultDiscountsLoader.swift in Sources */,
 				B3F49A3929A04E480029FE56 /* SceneDelegate.swift in Sources */,
@@ -341,6 +364,7 @@
 				B3F49A4E29A04E4A0029FE56 /* DefaultItemsLoaderTests.swift in Sources */,
 				B3F49A8629A4F7F20029FE56 /* DefaultDiscountsLoaderTests.swift in Sources */,
 				B3F49A7A29A3FC5F0029FE56 /* URLSessionHTTPClientTests.swift in Sources */,
+				B3F49A8F29A7A10E0029FE56 /* HomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

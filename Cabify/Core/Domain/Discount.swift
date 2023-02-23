@@ -9,15 +9,18 @@ import Foundation
 
 protocol Discount {
     var title: String { get }
+    var itemCode: String { get }
     func apply()
 }
 
 class BulkDiscount: Discount {
+    var itemCode: String
     var title: String
     var minimunBulkSize: Int
     var discountPerItem: Float
 
-    init(title: String, minimunBulkSize: Int, discountPerItem: Float) {
+    init(itemCode: String, title: String, minimunBulkSize: Int, discountPerItem: Float) {
+        self.itemCode = itemCode
         self.title = title
         self.minimunBulkSize = minimunBulkSize
         self.discountPerItem = discountPerItem
@@ -29,11 +32,13 @@ class BulkDiscount: Discount {
 }
 
 class XForYDiscount: Discount {
+    var itemCode: String
     var title: String
     var itemsBought: Int
     var freeItems: Int
 
-    init(title: String, itemsBought: Int, freeItems: Int) {
+    init(itemCode: String, title: String, itemsBought: Int, freeItems: Int) {
+        self.itemCode = itemCode
         self.title = title
         self.itemsBought = itemsBought
         self.freeItems = freeItems
