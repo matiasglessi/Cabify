@@ -10,7 +10,7 @@ import Foundation
 protocol Discount {
     var title: String { get }
     var itemCode: String { get }
-    func apply()
+    func apply(to cartItem: CartItem) -> Float
 }
 
 class BulkDiscount: Discount {
@@ -26,8 +26,10 @@ class BulkDiscount: Discount {
         self.discountPerItem = discountPerItem
     }
     
-    func apply() {
-        
+    func apply(to cartItem: CartItem) -> Float {
+        cartItem.quantity >= minimunBulkSize ?
+            Float(cartItem.quantity) * discountPerItem :
+            0.0
     }
 }
 
@@ -44,7 +46,9 @@ class XForYDiscount: Discount {
         self.freeItems = freeItems
     }
     
-    func apply() {
-        
+    func apply(to cartItem: CartItem) -> Float {
+        let discountedItems = Int(cartItem.quantity / itemsBought)
+        let totalDiscount = Float(discountedItems * freeItems) * cartItem.item.price
+        return totalDiscount
     }
 }
