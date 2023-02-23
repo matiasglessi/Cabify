@@ -27,6 +27,7 @@
 		B3F49A8C29A79C830029FE56 /* DefaultDiscountsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A8B29A79C830029FE56 /* DefaultDiscountsLoader.swift */; };
 		B3F49A8F29A7A10E0029FE56 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A8E29A7A10E0029FE56 /* HomeViewModelTests.swift */; };
 		B3F49A9229A7B2AE0029FE56 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A9129A7B2AE0029FE56 /* HomeViewModel.swift */; };
+		B3F49A9429A7C6E50029FE56 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A9329A7C6E50029FE56 /* ItemTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		B3F49A8B29A79C830029FE56 /* DefaultDiscountsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDiscountsLoader.swift; sourceTree = "<group>"; };
 		B3F49A8E29A7A10E0029FE56 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		B3F49A9129A7B2AE0029FE56 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B3F49A9329A7C6E50029FE56 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				B3F49A3A29A04E480029FE56 /* HomeViewController.swift */,
+				B3F49A9329A7C6E50029FE56 /* ItemTableViewCell.swift */,
 				B3F49A9129A7B2AE0029FE56 /* HomeViewModel.swift */,
 			);
 			path = Presentation;
@@ -347,6 +350,7 @@
 				B3F49A3B29A04E480029FE56 /* HomeViewController.swift in Sources */,
 				B3F49A7729A3D7490029FE56 /* HTTPClient.swift in Sources */,
 				B3F49A3729A04E480029FE56 /* AppDelegate.swift in Sources */,
+				B3F49A9429A7C6E50029FE56 /* ItemTableViewCell.swift in Sources */,
 				B3F49A7229A3D7050029FE56 /* DefaultItemsLoader.swift in Sources */,
 				B3F49A7429A3D71F0029FE56 /* ItemsMapper.swift in Sources */,
 				B3F49A9229A7B2AE0029FE56 /* HomeViewModel.swift in Sources */,
