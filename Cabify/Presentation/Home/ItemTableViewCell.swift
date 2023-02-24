@@ -8,6 +8,9 @@
 import UIKit
 
 class ItemTableViewCell: UITableViewCell {
+    private var item: Item?
+    weak var delegate: ItemCellDelegate?
+
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
@@ -91,9 +94,21 @@ class ItemTableViewCell: UITableViewCell {
     @objc private func quantityStepperValueChanged(sender: UIStepper) {
         let quantityValue = Int(sender.value)
         quantityLabel.text = quantityValue > 0 ? "\(quantityValue)" : ""
+        
+        guard let item = item else { return }
+        delegate?.didUpdateQuantity(itemCode: item.code, quantity: quantityValue)
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(with item: Item, discount: Discount?) {
+        self.item = item
+        self.titleLabel.text = item.name
+        self.priceLabel.text = "$\(item.price)0"
+        self.discountLabel.text = discount?.title ?? ""
+        self.quantityLabel.text = "0"
+        self.quantityStepper.value = 0
     }
 }

@@ -7,9 +7,11 @@
 
 import UIKit
 
+
 class HomeViewController: UIViewController {
     
     private var viewModel: HomeViewModel
+    private var coordinator: AppCoordinator
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -29,15 +31,16 @@ class HomeViewController: UIViewController {
     private let checkoutButton: UIButton = {
         let button = UIButton()
         button.setTitle("Checkout", for: .normal)
-        button.backgroundColor = .systemBlue
+        button.backgroundColor = UIColor(red: 0.36, green: 0.16, blue: 0.80, alpha: 1.00)
         button.layer.cornerRadius = 8
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    init(viewModel: HomeViewModel) {
+    init(viewModel: HomeViewModel, coordinator: AppCoordinator) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -77,7 +80,6 @@ class HomeViewController: UIViewController {
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            titleLabel.heightAnchor.constraint(equalToConstant: 32)
         ])
         
         NSLayoutConstraint.activate([
@@ -97,6 +99,14 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(ItemTableViewCell.self, forCellReuseIdentifier: "ItemTableViewCell")
+        
+        checkoutButton.addTarget(self, action: #selector(checkoutTapped), for: .touchUpInside)
+    }
+    
+    @objc func checkoutTapped() {
+        let cart = self.viewModel.cart()
+        
+        coordinator.checkout(with: cart)
     }
     
     private func showErrorAlert() {
@@ -106,7 +116,7 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource, ItemCellDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.numberOfItems()
     }
@@ -114,9 +124,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as! ItemTableViewCell
         let (item, discount) = self.viewModel.itemWithAssociatedDiscount(at: indexPath.row)
-        cell.titleLabel.text = item.name
-        cell.priceLabel.text = "$\(item.price)0"
-        cell.discountLabel.text = discount?.title ?? ""
+        cell.configure(with: item, discount: discount)
+        cell.delegate = self
         return cell
     }
+    
+    func didUpdateQuantity(itemCode: String, quantity: Int) {
+        self.viewModel.updatePreCheckoutCart(with: itemCode, quantity: quantity)
+    }
+}
+
+protocol ItemCellDelegate: AnyObject {
+    func didUpdateQuantity(itemCode: String, quantity: Int)
 }

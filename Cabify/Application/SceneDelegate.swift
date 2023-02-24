@@ -10,7 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var coordinator: AppCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -21,11 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
        
-        let discountsLoader = DefaultDiscountsLoader()
-        let itemsLoader = DefaultItemsLoader(url: URL(string: "https://gist.githubusercontent.com/palcalde/6c19259bd32dd6aafa327fa557859c2f/raw/ba51779474a150ee4367cda4f4ffacdcca479887/Products.json")!, client: URLSessionHTTPClient())
-        let viewModel = HomeViewModel(loadItemsService: itemsLoader, loadDiscountsService: discountsLoader)
-        let viewController = HomeViewController(viewModel: viewModel)
-        window?.rootViewController = viewController
+        let navController = UINavigationController()
+        self.coordinator = AppCoordinator(navigationController: navController)
+        self.coordinator?.start()
+
+        window?.rootViewController = navController
         window?.makeKeyAndVisible()
     }
 

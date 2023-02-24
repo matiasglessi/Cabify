@@ -12,11 +12,17 @@ enum HomeViewModelLoadResult {
     case failure
 }
 
+struct PreCheckoutCartItem {
+    let item: Item
+    let quantity: Int
+}
+
 class HomeViewModel {
     private let loadItemsService: ItemsLoader
     private let loadDiscountsService: DiscountsLoader
     private var items = [Item]()
     private var discounts = [Discount]()
+    private var precheckoutCart = [String: Int]()
     
     init(loadItemsService: ItemsLoader, loadDiscountsService: DiscountsLoader) {
         self.loadItemsService = loadItemsService
@@ -49,5 +55,31 @@ class HomeViewModel {
     
     private func discount(for itemCode: String) -> Discount? {
         discounts.filter { $0.itemCode == itemCode }.first
+    }
+    
+    private func item(for itemCode: String) -> Item? {
+        items.filter { $0.code == itemCode }.first
+    }
+    
+    func updatePreCheckoutCart(with itemCode: String, quantity: Int) {
+        if quantity == 0 { precheckoutCart.removeValue(forKey: itemCode) }
+        
+        precheckoutCart[itemCode] = quantity
+    }
+    
+    func cart() -> [CartItem] {
+        var cart = [CartItem]()
+        
+        precheckoutCart.forEach { itemCode, quantity in
+            guard let item = item(for: itemCode) else { return }
+            cart.append(
+                CartItem(item: item,
+                         quantity: quantity,
+                         discount: discount(for: itemCode)
+                        )
+            )
+        }
+        
+        return cart
     }
 }

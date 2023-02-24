@@ -33,4 +33,12 @@ class CartViewModel {
     func total() -> Float {
         subtotal() - totalDiscount()
     }
+    
+    func numberOfItems() -> Int {
+        return cart.count
+    }
+    
+    func cartItem(at index: Int) -> CartItem {
+        return cart[index]
+    }
 }
