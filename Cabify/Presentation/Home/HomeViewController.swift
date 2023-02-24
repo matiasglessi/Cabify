@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class HomeViewController: UIViewController {
     private enum Constants {
         enum Font {

@@ -13,6 +13,8 @@ protocol Coordinator {
 
 class AppCoordinator: Coordinator {
     
+    private static let itemsEndpoint = "https://gist.githubusercontent.com/palcalde/6c19259bd32dd6aafa327fa557859c2f/raw/ba51779474a150ee4367cda4f4ffacdcca479887/Products.json"
+    
     private let navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
@@ -21,7 +23,7 @@ class AppCoordinator: Coordinator {
     
     func start() {
         let discountsLoader = DefaultDiscountsLoader()
-        let itemsLoader = DefaultItemsLoader(url: URL(string: "https://gist.githubusercontent.com/palcalde/6c19259bd32dd6aafa327fa557859c2f/raw/ba51779474a150ee4367cda4f4ffacdcca479887/Products.json")!, client: URLSessionHTTPClient())
+        let itemsLoader = DefaultItemsLoader(url: URL(string: AppCoordinator.itemsEndpoint)!, client: URLSessionHTTPClient())
         let viewModel = HomeViewModel(loadItemsService: itemsLoader, loadDiscountsService: discountsLoader)
         let homeViewController = HomeViewController(viewModel: viewModel, coordinator: self)
         navigationController.pushViewController(homeViewController, animated: true)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3EA9E9D29A905ED0054D83C /* CartItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA9E9C29A905ED0054D83C /* CartItemTableViewCell.swift */; };
 		B3F49A3729A04E480029FE56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A3629A04E480029FE56 /* AppDelegate.swift */; };
 		B3F49A3929A04E480029FE56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A3829A04E480029FE56 /* SceneDelegate.swift */; };
 		B3F49A3B29A04E480029FE56 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F49A3A29A04E480029FE56 /* HomeViewController.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B3EA9E9C29A905ED0054D83C /* CartItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemTableViewCell.swift; sourceTree = "<group>"; };
 		B3F49A3329A04E480029FE56 /* Cabify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cabify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3F49A3629A04E480029FE56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3F49A3829A04E480029FE56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 			children = (
 				B3F49A9929A7D3600029FE56 /* CartViewModel.swift */,
 				B3F49A9F29A7D4CE0029FE56 /* CartViewController.swift */,
+				B3EA9E9C29A905ED0054D83C /* CartItemTableViewCell.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				B3F49A7429A3D71F0029FE56 /* ItemsMapper.swift in Sources */,
 				B3F49A9229A7B2AE0029FE56 /* HomeViewModel.swift in Sources */,
 				B3F49A9C29A7D3790029FE56 /* CartItem.swift in Sources */,
+				B3EA9E9D29A905ED0054D83C /* CartItemTableViewCell.swift in Sources */,
 				B3F49A6E29A3D6D90029FE56 /* ItemsLoader.swift in Sources */,
 				B3F49A8C29A79C830029FE56 /* DefaultDiscountsLoader.swift in Sources */,
 				B3F49A3929A04E480029FE56 /* SceneDelegate.swift in Sources */,
