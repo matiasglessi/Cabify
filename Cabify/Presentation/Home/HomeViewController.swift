@@ -113,7 +113,7 @@ class HomeViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(ItemTableViewCell.self, forCellReuseIdentifier: "ItemTableViewCell")
+        tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "HomeTableViewCell")
         
         checkoutButton.addTarget(self, action: #selector(checkoutTapped), for: .touchUpInside)
     }
@@ -139,7 +139,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, ItemCe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as! ItemTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
         let (item, discount) = self.viewModel.itemWithAssociatedDiscount(at: indexPath.row)
         cell.configure(with: item, discount: discount)
         cell.delegate = self

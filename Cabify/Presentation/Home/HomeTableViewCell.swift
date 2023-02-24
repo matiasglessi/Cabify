@@ -1,5 +1,5 @@
 //
-//  ItemTableViewCell.swift
+//  HomeTableViewCell.swift
 //  Cabify
 //
 //  Created by Matias Glessi on 23/02/2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ItemTableViewCell: UITableViewCell {
+class HomeTableViewCell: UITableViewCell {
     private enum Constants {
         enum Font {
             static let big: CGFloat = 18
