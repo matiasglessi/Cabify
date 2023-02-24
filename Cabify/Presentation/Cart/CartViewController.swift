@@ -8,14 +8,26 @@
 import UIKit
 
 class CartViewController: UIViewController {
-    
+    private enum Constants {
+        enum Font {
+            static let big: CGFloat = 24
+            static let medium: CGFloat = 16
+        }
+        enum Constraints {
+            static let titleHeight: CGFloat = 32
+            static let priceWidth: CGFloat = 100
+            static let shortDistance: CGFloat = 8
+            static let longDistance: CGFloat = 16
+        }
+    }
+
     private var viewModel: CartViewModel
     private var coordinator: AppCoordinator
 
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "My Cart"
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: Constants.Font.big, weight: .bold)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -23,6 +35,7 @@ class CartViewController: UIViewController {
     
     private let tableView: UITableView = {
         let tableView = UITableView()
+        tableView.allowsSelection = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -30,14 +43,14 @@ class CartViewController: UIViewController {
     private let subtotalTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Subtotal"
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: Constants.Font.medium, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let subtotalValueLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: Constants.Font.medium, weight: .regular)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -46,14 +59,14 @@ class CartViewController: UIViewController {
     private let discountedTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Discounted"
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: Constants.Font.medium, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let discountedValueLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: Constants.Font.medium, weight: .regular)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -63,7 +76,7 @@ class CartViewController: UIViewController {
     private let totalTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Total"
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: Constants.Font.big, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -71,7 +84,7 @@ class CartViewController: UIViewController {
     
     private let totalValueLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: Constants.Font.big, weight: .bold)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -106,57 +119,57 @@ class CartViewController: UIViewController {
         view.addSubview(totalValueLabel)
 
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            titleLabel.heightAnchor.constraint(equalToConstant: 32)
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.Constraints.longDistance),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.Constraints.longDistance),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.Constraints.longDistance),
+            titleLabel.heightAnchor.constraint(equalToConstant: Constants.Constraints.titleHeight)
         ])
                 
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            tableView.bottomAnchor.constraint(equalTo: subtotalTitleLabel.topAnchor, constant: -16)
+            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.Constraints.longDistance),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.Constraints.longDistance),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.Constraints.longDistance),
+            tableView.bottomAnchor.constraint(equalTo: subtotalTitleLabel.topAnchor, constant: -Constants.Constraints.longDistance)
         ])
         
         NSLayoutConstraint.activate([
-            subtotalTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            subtotalTitleLabel.trailingAnchor.constraint(equalTo: subtotalValueLabel.leadingAnchor, constant: -16),
-            subtotalTitleLabel.bottomAnchor.constraint(equalTo: discountedTitleLabel.topAnchor, constant: -8)
+            subtotalTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.Constraints.longDistance),
+            subtotalTitleLabel.trailingAnchor.constraint(equalTo: subtotalValueLabel.leadingAnchor, constant: -Constants.Constraints.longDistance),
+            subtotalTitleLabel.bottomAnchor.constraint(equalTo: discountedTitleLabel.topAnchor, constant: -Constants.Constraints.shortDistance)
         ])
         
         NSLayoutConstraint.activate([
-            subtotalValueLabel.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 16),
-            subtotalValueLabel.widthAnchor.constraint(equalToConstant: 100),
-            subtotalValueLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            subtotalValueLabel.leadingAnchor.constraint(equalTo: subtotalTitleLabel.trailingAnchor, constant: 16),
-            subtotalValueLabel.bottomAnchor.constraint(equalTo: discountedValueLabel.topAnchor, constant: -8)
+            subtotalValueLabel.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: Constants.Constraints.longDistance),
+            subtotalValueLabel.widthAnchor.constraint(equalToConstant: Constants.Constraints.priceWidth),
+            subtotalValueLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.Constraints.longDistance),
+            subtotalValueLabel.leadingAnchor.constraint(equalTo: subtotalTitleLabel.trailingAnchor, constant: Constants.Constraints.longDistance),
+            subtotalValueLabel.bottomAnchor.constraint(equalTo: discountedValueLabel.topAnchor, constant: -Constants.Constraints.shortDistance)
         ])
         
         NSLayoutConstraint.activate([
-            discountedTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            discountedTitleLabel.trailingAnchor.constraint(equalTo: discountedValueLabel.leadingAnchor, constant: -16),
-            discountedTitleLabel.bottomAnchor.constraint(equalTo: totalTitleLabel.topAnchor, constant: -16)
+            discountedTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.Constraints.longDistance),
+            discountedTitleLabel.trailingAnchor.constraint(equalTo: discountedValueLabel.leadingAnchor, constant: -Constants.Constraints.longDistance),
+            discountedTitleLabel.bottomAnchor.constraint(equalTo: totalTitleLabel.topAnchor, constant: -Constants.Constraints.longDistance)
         ])
         
         NSLayoutConstraint.activate([
-            discountedValueLabel.widthAnchor.constraint(equalToConstant: 100),
-            discountedValueLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            discountedValueLabel.leadingAnchor.constraint(equalTo: discountedTitleLabel.trailingAnchor, constant: 16),
-            discountedValueLabel.bottomAnchor.constraint(equalTo: totalValueLabel.topAnchor, constant: -16)
+            discountedValueLabel.widthAnchor.constraint(equalToConstant: Constants.Constraints.priceWidth),
+            discountedValueLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.Constraints.longDistance),
+            discountedValueLabel.leadingAnchor.constraint(equalTo: discountedTitleLabel.trailingAnchor, constant: Constants.Constraints.longDistance),
+            discountedValueLabel.bottomAnchor.constraint(equalTo: totalValueLabel.topAnchor, constant: -Constants.Constraints.longDistance)
 
         ])
         
         NSLayoutConstraint.activate([
-            totalTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            totalTitleLabel.trailingAnchor.constraint(equalTo: totalValueLabel.leadingAnchor, constant: -16),
+            totalTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.Constraints.longDistance),
+            totalTitleLabel.trailingAnchor.constraint(equalTo: totalValueLabel.leadingAnchor, constant: -Constants.Constraints.longDistance),
         ])
 
         NSLayoutConstraint.activate([
-            totalValueLabel.widthAnchor.constraint(equalToConstant: 100),
-            totalValueLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            totalValueLabel.leadingAnchor.constraint(equalTo: totalTitleLabel.trailingAnchor, constant: 16),
-            totalValueLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            totalValueLabel.widthAnchor.constraint(equalToConstant: Constants.Constraints.priceWidth),
+            totalValueLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.Constraints.longDistance),
+            totalValueLabel.leadingAnchor.constraint(equalTo: totalTitleLabel.trailingAnchor, constant: Constants.Constraints.longDistance),
+            totalValueLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.Constraints.longDistance),
 
         ])
         
@@ -186,9 +199,22 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 class CartItemTableViewCell: UITableViewCell {
+    private enum Constants {
+        enum Font {
+            static let medium: CGFloat = 16
+            static let small: CGFloat = 14
+        }
+        enum Constraints {
+            static let shortDistance: CGFloat = 5
+            static let mediumDistance: CGFloat = 8
+            static let longDistance: CGFloat = 10
+            static let quantityWidth: CGFloat = 30
+            static let priceWidth: CGFloat = 60
+        }
+    }
     let quantityLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: Constants.Font.medium, weight: .semibold)
         label.textColor = .black
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -205,7 +231,7 @@ class CartItemTableViewCell: UITableViewCell {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: Constants.Font.medium)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -213,7 +239,7 @@ class CartItemTableViewCell: UITableViewCell {
     
     let pricePerUnitLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.systemFont(ofSize: Constants.Font.small)
         label.textColor = .darkGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -221,7 +247,7 @@ class CartItemTableViewCell: UITableViewCell {
     
     let totalPriceLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: Constants.Font.medium, weight: .semibold)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -235,27 +261,27 @@ class CartItemTableViewCell: UITableViewCell {
         contentView.addSubview(totalPriceLabel)
         
         NSLayoutConstraint.activate([
-            quantityLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            quantityLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
-            quantityLabel.trailingAnchor.constraint(equalTo: productStackView.leadingAnchor, constant: -10),
+            quantityLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.Constraints.mediumDistance),
+            quantityLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.Constraints.shortDistance),
+            quantityLabel.trailingAnchor.constraint(equalTo: productStackView.leadingAnchor, constant: -Constants.Constraints.longDistance),
             quantityLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            quantityLabel.widthAnchor.constraint(equalToConstant: 30),
-            quantityLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+            quantityLabel.widthAnchor.constraint(equalToConstant: Constants.Constraints.quantityWidth),
+            quantityLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.Constraints.mediumDistance)
         ])
         
         NSLayoutConstraint.activate([
-            productStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            productStackView.trailingAnchor.constraint(equalTo: totalPriceLabel.leadingAnchor, constant: -8),
-            productStackView.leadingAnchor.constraint(equalTo: quantityLabel.trailingAnchor, constant: 10),
-            productStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+            productStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.Constraints.mediumDistance),
+            productStackView.trailingAnchor.constraint(equalTo: totalPriceLabel.leadingAnchor, constant: -Constants.Constraints.mediumDistance),
+            productStackView.leadingAnchor.constraint(equalTo: quantityLabel.trailingAnchor, constant: Constants.Constraints.longDistance),
+            productStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.Constraints.mediumDistance)
         ])
         
         NSLayoutConstraint.activate([
-            totalPriceLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            totalPriceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
-            totalPriceLabel.leadingAnchor.constraint(equalTo: productStackView.trailingAnchor, constant: 8),
-            totalPriceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            totalPriceLabel.widthAnchor.constraint(equalToConstant: 60)
+            totalPriceLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.Constraints.mediumDistance),
+            totalPriceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.Constraints.shortDistance),
+            totalPriceLabel.leadingAnchor.constraint(equalTo: productStackView.trailingAnchor, constant: Constants.Constraints.mediumDistance),
+            totalPriceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.Constraints.mediumDistance),
+            totalPriceLabel.widthAnchor.constraint(equalToConstant: Constants.Constraints.priceWidth)
         ])
         
 
